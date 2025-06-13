@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h3>Edit To-do</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- Text field -->
+        <div class="mb-3">
+            {{ form.text.label(class="form-label") }}
+            {{ form.text(class="form-control") }}
+        </div>
+
+        <!-- Date created -->
+        <div class="mb-3">
+            {{ form.date.label(class="form-label") }}
+            {{ form.date(class="form-control") }}
+        </div>
+
+        <!-- Due Date -->
+        <div class="mb-3">
+            {{ form.due_on_date.label(class="form-label") }}
+            {{ form.due_on_date(class="form-control") }}
+        </div>
+
+        <!-- Checkbox Done -->
+        <div class="form-check mb-3">
+            {{ form.done(class="form-check-input") }}
+            {{ form.done.label(class="form-check-label") }}
+        </div>
+
+        <!-- Buttons -->
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
